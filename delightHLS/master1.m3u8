@@ -1,0 +1,7 @@
+#EXTM3U
+## Generated with https://github.com/google/shaka-packager version 085e038-release
+#EXT-X-MEDIA:TYPE=AUDIO,GROUP-ID="audio",NAME="stream_7",LANGUAGE="en",URI="audio_256x128_98k_59.94fps_high.m3u8"
+#EXT-X-MEDIA:TYPE=AUDIO,GROUP-ID="audio",NAME="stream_5",LANGUAGE="en",URI="audio_2160x1080_6991k_59.94fps_high.m3u8"
+#EXT-X-MEDIA:TYPE=AUDIO,GROUP-ID="audio",NAME="stream_12",LANGUAGE="en",URI="audio_720x360_777k_59.94fps_high.m3u8"
+#EXT-X-STREAM-INF:BANDWIDTH=24423682,CODECS="avc1.640034,mp4a.40.2",RESOLUTION=3840x1920,AUDIO="audio"
+3840x1920_22096k_59.94fps_high.m3u8
