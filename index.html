@@ -4,13 +4,13 @@
 </head>
 <body>
     <h2>Adaptive Streaming with Mpeg-Dash/HLS using Zencoder</h2>
-    <h3>Current stream is HLS-only</h3>
+    <h3>Current stream is an HLS single-quality stream to be compared against the one below it</h3>
     <dl8-video title="Head of Class" format="STEREO_180_LR" poster="img/headclass.jpg" display-mode="inline" preload="auto">
         <source src="HLS/playlist.m3u8" type="application/x-mpegurl" />
         <source src="DASH/manifest.mpd" type="application/dash+xml" />
         <dl8-recommendation mode="static">
-           <dl8-video title="Video Recommendation" author="BaDoinkVR" format="STEREO_180_LR" poster="img/headclass.jpg" display-mode="inline">
-                <source src="HLS/playlist.m3u8" type="application/x-mpegurl" />
+           <dl8-video title="Video Recommendation" format="STEREO_180_LR" poster="img/headclass.jpg" display-mode="inline">
+                <source src="HLS-zencoder/playlist.m3u8" type="application/x-mpegurl" />
              <!--   <source src="DASH/manifest.mpd" type="application/dash+xml" /> -->
            </dl8-video>
            <dl8-external-content title="" poster="img/handsfree.jpg" url="https://vrsumo.com/vrmode/" autostart></dl8-external-content>
@@ -18,7 +18,7 @@
     </dl8-video>
     <h2>Adaptive Streaming wtih HLS using DelightVR Encoder</h2>
     <dl8-video title="Head of Class" format = "STEREO_180_LR" poster="img/headclass.jpg" display-mode="inline" preload="auto">
-        <source src="delightHLS/master.m3u8" type="application/x-mpegurl" />
+        <source src="delightHLS/master1.m3u8" type="application/x-mpegurl" />
         <dl8-recommendation mode="static">
            <dl8-video title="Video Recommendation" format="STEREO_180_LR" poster="img/headclass.jpg" display-mode="inline">
                 <source src="delightHLS/master.m3u8" type="application/x-mpegurl" />
