@@ -12,10 +12,10 @@
         <meta name="dl8-customization-no-compass">
         <meta name="dl8-beta-immediate-load">
         <script>
-            var element = document.querySelector("dl8-video");
-            function(element){
-                element.start();  
-            }
+            window.onload = function(){
+                var element = document.querySelector("dl8-video");
+                element.start();
+            };
         </script>
     </head>
     <style>
