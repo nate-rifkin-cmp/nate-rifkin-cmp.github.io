@@ -1,16 +1,55 @@
 <head>
     <script src="//cdn.delight-vr.com/latest/dl8-985ba993049396783299dc59ef60d6a455dd7529.js" 
 async></script>
-
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="dl8-beta-tracking-events" content="x-dl8-tracking-vr-camera x-dl8-tracking-performance-result x-dl8-tracking-video-seek x-dl8-tracking-video-play"/>
+    <script>
+        window.onload = function(){
+        var skipped = false;
+        var currentTime=0;
+        var currentTimeText = document.getElementById("track_time");
+        var lastTime = 0;
+        var timeElapsed = 0;
+        var skipTime = document.getElementById("track_skip");
+        skipTime.innerHTML = "(not skipped yet)";
+        var timeLog = document.getElementById("track_elapse");
+        var event = document.getElementById("track_event_fired");
+        document.addEventListener('x-dl8-tracking-video-seek', function(e){
+            skipTime.innerHTML = "Skipped: "+lastTime;
+            skipped = true;
+        });
+        document.addEventListener('x-dl8-tracking-vr-camera', function(e){
+            currentTime = e.detail.p.d[4];
+            if(currentTime-lastTime>=5 || currentTime-lastTime<0){
+               lastTime = currentTime;
+            }
+            else{
+                timeElapsed+=currentTime-lastTime;
+                timeLog.innerHTML = "Time Elapsed: "+timeElapsed;
+                lastTime = currentTime;
+            }
+            currentTimeText.innerHTML="Debug Video Time: "+currentTime;
+            if(timeElapsed>=60){
+                event.innerHTML+="\n"+timeElapsed;
+                timeElapsed = 0;
+            }
+        });
+    </script>
 </head>
 <style>
     body{
         background: #222;
     }
+    dl8-video{
+        max-width: 500px;
+    }
 </style>
 <body>
-
     <dl8-video format="STEREO_180_LR">
         <source src="HLS/playlist.m3u8" type="application/x-mpegurl" />
     </dl8-video>
+    <div id="track_time">Debug Video Current Time: 0</div>
+    <div id="track_elapse">Debug Time Elapsed: 0</div>
+    <div id="track_skip">Debug Last Skip: (Not Skipped)</div>
+    <div id="track_event_fired">Debug Events Fired: </div>
 </body>
