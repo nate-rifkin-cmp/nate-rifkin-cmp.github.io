@@ -5,18 +5,13 @@ async></script>
     <meta name="dl8-beta-tracking-events" content="x-dl8-tracking-vr-camera x-dl8-tracking-performance-result x-dl8-tracking-video-seek x-dl8-tracking-video-play"/>
     <script>
         window.onload = function(){
-            var skipped = false;
-            var currentTime=0;
+            var currentTime=0, lastTime = 0, timeElapsed = 0;
             var currentTimeText = document.getElementById("track_time");
-            var lastTime = 0;
-            var timeElapsed = 0;
             var skipTime = document.getElementById("track_skip");
-            skipTime.innerHTML = "(not skipped yet)";
             var timeLog = document.getElementById("track_elapse");
             var event = document.getElementById("track_event_fired");
             document.addEventListener('x-dl8-tracking-video-seek', function(e){
                 skipTime.innerHTML = "Debug Last Skip: "+lastTime;
-                skipped = true;
             });
             document.addEventListener('x-dl8-tracking-vr-camera', function(e){
                 currentTime = e.detail.p.d[4];
@@ -52,6 +47,6 @@ async></script>
     </dl8-video>
     <div id="track_time">Debug Video Current Time: 0</div>
     <div id="track_elapse">Debug Time Elapsed: 0</div>
-    <div id="track_skip">Debug Last Skip: (Not Skipped)</div>
+    <div id="track_skip">Debug Last Skip: (Not Skipped Yet)</div>
     <div id="track_event_fired">Debug Events Fired: </div>
 </body>
