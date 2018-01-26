@@ -5,35 +5,36 @@ async></script>
     <meta name="dl8-beta-tracking-events" content="x-dl8-tracking-vr-camera x-dl8-tracking-performance-result x-dl8-tracking-video-seek x-dl8-tracking-video-play"/>
     <script>
         window.onload = function(){
-        var skipped = false;
-        var currentTime=0;
-        var currentTimeText = document.getElementById("track_time");
-        var lastTime = 0;
-        var timeElapsed = 0;
-        var skipTime = document.getElementById("track_skip");
-        skipTime.innerHTML = "(not skipped yet)";
-        var timeLog = document.getElementById("track_elapse");
-        var event = document.getElementById("track_event_fired");
-        document.addEventListener('x-dl8-tracking-video-seek', function(e){
-            skipTime.innerHTML = "Skipped: "+lastTime;
-            skipped = true;
-        });
-        document.addEventListener('x-dl8-tracking-vr-camera', function(e){
-            currentTime = e.detail.p.d[4];
-            if(currentTime-lastTime>=5 || currentTime-lastTime<0){
-               lastTime = currentTime;
-            }
-            else{
-                timeElapsed+=currentTime-lastTime;
-                timeLog.innerHTML = "Time Elapsed: "+timeElapsed;
-                lastTime = currentTime;
-            }
-            currentTimeText.innerHTML="Debug Video Time: "+currentTime;
-            if(timeElapsed>=60){
-                event.innerHTML+="\n"+timeElapsed;
-                timeElapsed = 0;
-            }
-        });
+            var skipped = false;
+            var currentTime=0;
+            var currentTimeText = document.getElementById("track_time");
+            var lastTime = 0;
+            var timeElapsed = 0;
+            var skipTime = document.getElementById("track_skip");
+            skipTime.innerHTML = "(not skipped yet)";
+            var timeLog = document.getElementById("track_elapse");
+            var event = document.getElementById("track_event_fired");
+            document.addEventListener('x-dl8-tracking-video-seek', function(e){
+                skipTime.innerHTML = "Skipped: "+lastTime;
+                skipped = true;
+            });
+            document.addEventListener('x-dl8-tracking-vr-camera', function(e){
+                currentTime = e.detail.p.d[4];
+                if(currentTime-lastTime>=5 || currentTime-lastTime<0){
+                   lastTime = currentTime;
+                }
+                else{
+                    timeElapsed+=currentTime-lastTime;
+                    timeLog.innerHTML = "Time Elapsed: "+timeElapsed;
+                    lastTime = currentTime;
+                }
+                currentTimeText.innerHTML="Debug Video Time: "+currentTime;
+                if(timeElapsed>=60){
+                    event.innerHTML+="\n"+timeElapsed;
+                    timeElapsed = 0;
+                }
+            });
+        }
     </script>
 </head>
 <style>
