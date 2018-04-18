@@ -1,0 +1,26 @@
+<html>
+    <head>
+        <script src="//cdn.delight-vr.com/latest/dl8-985ba993049396783299dc59ef60d6a455dd7529.js" async></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="dl8-customization-no-controls">
+        <meta name="dl8-customization-no-vr-button">
+        <meta name="dl8-customization-no-fullscreen-button">
+        <meta name="dl8-customization-no-settings-button">
+        <meta name="dl8-customization-no-exit-button">
+        <meta name="dl8-customization-no-title">
+        <meta name="dl8-customization-no-brand-watermark-logo">
+        <meta name="dl8-customization-no-compass">
+        <meta name="dl8-beta-immediate-load">
+        <script>
+            window.onload = function(){
+                var element = document.querySelector("dl8-img");
+                element.start();
+            };
+        </script>
+    </head>
+    <body>
+        <dl8-img format="STEREO_180_LR" display-mode="force-inline" style="width:100%; height:100%" preferred-controls="MAGIC_WINDOW_CONTROLS" preload="true">
+            <source src="test_img.png" type="video/mp4" />
+        </dl8-img>
+    </body>
+</html>
